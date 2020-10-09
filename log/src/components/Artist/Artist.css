@@ -1,35 +1,26 @@
-.record {
+.artist {
   border: 1px solid #d9d9d9;
   padding: 1.5rem;
   background-color: #fff;
   margin: 0 0.5rem 1rem 0.5rem;
 }
 
-.record-heading {
+.artist-heading {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-bottom: 0.25rem;
-}
-
-.record-subheading {
-  font-size: 1.25rem;
-  margin-bottom: 0.25rem;
-}
-
-.record-condition {
   margin-bottom: 1rem;
 }
 
-.record-actions {
+.artist-actions {
   border-top: 1px dotted #d9d9d9;
   padding-top: 1rem;
 }
 
-.record-delete-action-message {
+.artist-delete-action-message {
   display: flex;
   align-items: center;
 }
 
-.record-message-item {
+.artist-message-item {
   margin-right: 0.5rem;
 }

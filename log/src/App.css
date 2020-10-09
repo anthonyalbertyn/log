@@ -1,3 +1,16 @@
 .app {
   padding: 1rem;
 }
+
+.app-search-wrapper {
+  margin-bottom: 2rem;
+}
+
+.app-action-items-wrapper {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.app-action-item {
+  margin-right: 0.5rem;
+}

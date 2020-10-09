@@ -27,6 +27,7 @@ function RecordList(props) {
           const artistName = getArtistName(item.artistId);
           return (
             <Record
+              key={item.albumId}
               artistName={artistName}
               albumId={item.albumId}
               albumTitle={item.albumTitle}
