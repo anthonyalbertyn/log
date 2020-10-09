@@ -6,10 +6,17 @@ import './RecordList.css';
 const propsDefinition = {
   records: PropTypes.array,
   artists: PropTypes.array,
+  onDelete: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired,
 };
 
 function RecordList(props) {
-  const { records = [], artists = [] } = props;
+  const {
+    records = [],
+    artists = [],
+    onDelete = () => {},
+    onEdit = () => {},
+  } = props;
 
   const getArtistName = (artistId) => {
     let artistName = 'Not specified';
@@ -33,6 +40,8 @@ function RecordList(props) {
               albumTitle={item.albumTitle}
               albumYear={item.albumYear}
               albumCondition={item.albumCondition}
+              onDelete={onDelete}
+              onEdit={onEdit}
             />
           );
         })}

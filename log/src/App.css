@@ -13,6 +13,7 @@
 .app-action-items-wrapper {
   display: flex;
   margin-bottom: 2rem;
+  padding-top: 1rem;
 }
 
 .app-action-item {

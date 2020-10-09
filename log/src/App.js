@@ -54,12 +54,49 @@ function App() {
     ]);
   };
 
-  const cancelRecordForm = () => {
+  const getRecord = (albumId) => {
+    let record;
+    const matches = records.filter((item) => item.albumId === albumId);
+    if (matches.length > 0) {
+      record = matches[0];
+    }
+    return record;
+  };
+
+  const getArtist = (artistId) => {
+    let artist;
+    const matches = artists.filter((item) => item.artistId === artistId);
+    if (matches.length > 0) {
+      artist = matches[0];
+    }
+    return artist;
+  };
+
+  const editRecord = (albumId) => {
+    setIsEditRecordActive(true);
+  };
+  const editArtist = (artistId) => {
+    setIsEditArtistActive(true);
+  };
+
+  const deleteRecord = (albumId) => {};
+
+  const deleteArtist = (artistId) => {};
+
+  const cancelAddRecord = () => {
     setIsAddRecordActive(false);
   };
 
-  const cancelArtistForm = () => {
+  const cancelEditRecord = () => {
+    setIsEditRecordActive(false);
+  };
+
+  const cancelAddArtist = () => {
     setIsAddArtistActive(false);
+  };
+
+  const cancelEditArtist = () => {
+    setIsEditArtistActive(false);
   };
 
   const handleSearchInputChange = (event) => {
@@ -107,23 +144,46 @@ function App() {
       <div className="main">
         <Tabs type="card">
           <TabPane tab="Records" key="recordsTab">
-            <RecordList records={records} artists={artists} />
+            <RecordList
+              records={records}
+              artists={artists}
+              onEdit={editRecord}
+              onDelete={deleteRecord}
+            />
           </TabPane>
           <TabPane tab="Artists" key="artistsTab">
-            <ArtistList artists={artists} />
+            <ArtistList
+              artists={artists}
+              onEdit={editArtist}
+              onDelete={deleteArtist}
+            />
           </TabPane>
         </Tabs>
         {isAddRecordActive && (
           <Modal
             title="Add Record"
             visible={isAddRecordActive}
-            onCancel={() => setIsAddRecordActive(false)}
+            onCancel={cancelAddRecord}
             footer={null}
           >
             <RecordForm
               artists={artists}
               onSave={addNewRecord}
-              onCancel={cancelRecordForm}
+              onCancel={cancelAddRecord}
+            />
+          </Modal>
+        )}
+        {isEditRecordActive && (
+          <Modal
+            title="Edit Record"
+            visible={isEditRecordActive}
+            onCancel={cancelEditRecord}
+            footer={null}
+          >
+            <RecordForm
+              artists={artists}
+              onSave={editRecord}
+              onCancel={cancelEditRecord}
             />
           </Modal>
         )}
@@ -131,10 +191,20 @@ function App() {
           <Modal
             title="Add Artist"
             visible={isAddArtistActive}
-            onCancel={() => setIsAddArtistActive(false)}
+            onCancel={cancelAddArtist}
             footer={null}
           >
-            <ArtistForm onSave={addNewArtist} onCancel={cancelArtistForm} />
+            <ArtistForm onSave={addNewArtist} onCancel={cancelAddArtist} />
+          </Modal>
+        )}
+        {isEditArtistActive && (
+          <Modal
+            title="Edit Artist"
+            visible={isEditArtistActive}
+            onCancel={cancelEditArtist}
+            footer={null}
+          >
+            <ArtistForm onSave={editArtist} onCancel={cancelEditArtist} />
           </Modal>
         )}
       </div>
@@ -143,11 +213,3 @@ function App() {
 }
 
 export default App;
-
-/*
-  artists={artists}
-  artistId={4}
-  albumTitle="Hello there"
-  albumYear={1986}
-  albumCondition={2}
-*/

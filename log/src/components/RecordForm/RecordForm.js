@@ -178,7 +178,9 @@ function RecordForm(props) {
           {artists.length > 0 && (
             <>
               {artists.map((item) => (
-                <Option value={item.artistId}>{item.artistName}</Option>
+                <Option key={item.artistId} value={item.artistId}>
+                  {item.artistName}
+                </Option>
               ))}
             </>
           )}
