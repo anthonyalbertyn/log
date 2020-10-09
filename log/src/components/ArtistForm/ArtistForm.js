@@ -30,6 +30,11 @@ function ArtistForm(props) {
     setArtistNameField(event.target.value);
   };
 
+  const handleSave = () => {
+    onSave(artistNameField);
+    onCancel();
+  };
+
   useEffect(() => {
     if (artistNameField && isSaveDisabled) {
       setIsSaveDisabled(false);
@@ -43,11 +48,8 @@ function ArtistForm(props) {
     }
   }, [artistNameField]);
 
-  const artistFormHeading = artistName ? 'Edit artist' : 'Add new artist';
-
   return (
     <div className="artist-form">
-      <div className="artist-form-heading">{artistFormHeading}</div>
       <div className="artist-form-field">
         <div className="artist-form-label">Artist</div>
         <Input
@@ -71,7 +73,7 @@ function ArtistForm(props) {
             key="artistFormSave"
             type="primary"
             disabled={isSaveDisabled}
-            onClick={() => onSave(artistNameField)}
+            onClick={handleSave}
           >
             Save
           </Button>

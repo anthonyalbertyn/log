@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Input, Tabs } from 'antd';
+import { Button, Input, Modal, Tabs } from 'antd';
 import { SearchOutlined, SoundOutlined, UserOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import './App.css';
@@ -14,6 +14,10 @@ const { TabPane } = Tabs;
 function App() {
   const [records, setRecords] = useState([]);
   const [artists, setArtists] = useState([]);
+  const [isAddRecordActive, setIsAddRecordActive] = useState(false);
+  const [isEditRecordActive, setIsEditRecordActive] = useState(false);
+  const [isAddArtistActive, setIsAddArtistActive] = useState(false);
+  const [isEditArtistActive, setIsEditArtistActive] = useState(false);
 
   const addNewRecord = (albumTitle, albumYear, albumCondition, artistId) => {
     if (!albumTitle || !albumYear || !albumCondition || !artistId) {
@@ -50,8 +54,13 @@ function App() {
     ]);
   };
 
-  const cancelRecordForm = () => {};
-  const cancelArtistForm = () => {};
+  const cancelRecordForm = () => {
+    setIsAddRecordActive(false);
+  };
+
+  const cancelArtistForm = () => {
+    setIsAddArtistActive(false);
+  };
 
   const handleSearchInputChange = (event) => {
     console.log(event.target.value);
@@ -61,15 +70,6 @@ function App() {
     <div className="app">
       <header className="app-header">
         <h1>Record Collection</h1>
-      </header>
-      <div className="main">
-        <RecordForm
-          artists={artists}
-          onSave={addNewRecord}
-          onCancel={cancelRecordForm}
-        />
-        <ArtistForm onSave={addNewArtist} onCancel={cancelArtistForm} />
-
         <div className="app-action-items-wrapper">
           <div className="app-action-item">
             <Button
@@ -77,6 +77,7 @@ function App() {
               type="primary"
               size="large"
               icon={<SoundOutlined />}
+              onClick={() => setIsAddRecordActive(true)}
             >
               Add Record
             </Button>
@@ -87,6 +88,7 @@ function App() {
               type="secondary"
               size="large"
               icon={<UserOutlined />}
+              onClick={() => setIsAddArtistActive(true)}
             >
               Add Artist
             </Button>
@@ -101,7 +103,8 @@ function App() {
             style={{ width: '100%', maxWidth: 500 }}
           />
         </div>
-
+      </header>
+      <div className="main">
         <Tabs type="card">
           <TabPane tab="Records" key="recordsTab">
             <RecordList records={records} artists={artists} />
@@ -110,6 +113,30 @@ function App() {
             <ArtistList artists={artists} />
           </TabPane>
         </Tabs>
+        {isAddRecordActive && (
+          <Modal
+            title="Add Record"
+            visible={isAddRecordActive}
+            onCancel={() => setIsAddRecordActive(false)}
+            footer={null}
+          >
+            <RecordForm
+              artists={artists}
+              onSave={addNewRecord}
+              onCancel={cancelRecordForm}
+            />
+          </Modal>
+        )}
+        {isAddArtistActive && (
+          <Modal
+            title="Add Artist"
+            visible={isAddArtistActive}
+            onCancel={() => setIsAddArtistActive(false)}
+            footer={null}
+          >
+            <ArtistForm onSave={addNewArtist} onCancel={cancelArtistForm} />
+          </Modal>
+        )}
       </div>
     </div>
   );

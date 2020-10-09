@@ -1,6 +1,4 @@
 .artist-form {
-  border: 1px solid #d9d9d9;
-  padding: 1.5rem;
   background-color: #fff;
 }
 
@@ -16,12 +14,6 @@
 
 .artist-form-field {
   margin-bottom: 1rem;
-}
-
-.artist-form-heading {
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-  font-weight: bold;
 }
 
 .error {

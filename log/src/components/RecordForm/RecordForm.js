@@ -62,6 +62,11 @@ function RecordForm(props) {
     setAlbumConditionField(value);
   };
 
+  const handleSave = () => {
+    onSave(albumTitleField, albumYearField, albumConditionField, artistIdField);
+    onCancel();
+  };
+
   useEffect(() => {
     const validationSuccess = {
       requiredAlbumTitle: false,
@@ -130,11 +135,8 @@ function RecordForm(props) {
     }
   }, [albumTitleField, albumYearField, artistIdField, albumConditionField]);
 
-  const recordFormHeading = albumTitle ? 'Edit record' : 'Add new record';
-
   return (
     <div className="record-form">
-      <div className="record-form-heading">{recordFormHeading}</div>
       <div className="record-form-field">
         <div className="record-form-label">Album Title</div>
         <Input
@@ -208,14 +210,7 @@ function RecordForm(props) {
             key="recordFormSave"
             type="primary"
             disabled={isSaveDisabled}
-            onClick={() =>
-              onSave(
-                albumTitleField,
-                albumYearField,
-                albumConditionField,
-                artistIdField,
-              )
-            }
+            onClick={handleSave}
           >
             Save
           </Button>

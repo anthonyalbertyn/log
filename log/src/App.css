@@ -2,6 +2,10 @@
   padding: 1rem;
 }
 
+.app-header {
+  margin-bottom: 2rem;
+}
+
 .app-search-wrapper {
   margin-bottom: 2rem;
 }
