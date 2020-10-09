@@ -3,6 +3,8 @@ import 'antd/dist/antd.css';
 import './App.css';
 import ArtistForm from './components/ArtistForm';
 import RecordForm from './components/RecordForm';
+import RecordList from './components/RecordList';
+
 import { generateId } from './utils';
 
 function App() {
@@ -47,9 +49,6 @@ function App() {
   const cancelRecordForm = () => {};
   const cancelArtistForm = () => {};
 
-  console.log('RECORDS: ', records);
-  console.log('ARTISTS: ', artists);
-
   return (
     <div className="app">
       <header className="app-header">
@@ -62,6 +61,7 @@ function App() {
           onCancel={cancelRecordForm}
         />
         <ArtistForm onSave={addNewArtist} onCancel={cancelArtistForm} />
+        <RecordList records={records} artists={artists} />
       </div>
     </div>
   );
