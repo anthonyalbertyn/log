@@ -6,24 +6,24 @@ import './RecordForm.css';
 const { Option } = Select;
 
 const propsDefinition = {
-  artistId: PropTypes.number,
+  artistId: PropTypes.string,
   albumTitle: PropTypes.string,
   albumYear: PropTypes.number,
   albumCondition: PropTypes.number,
   artists: PropTypes.array.isRequired,
-  onClickSave: PropTypes.func.isRequired,
-  onClickCancel: PropTypes.func.isRequired,
+  onSave: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
 };
 
 function RecordForm(props) {
   const {
-    artistId = '',
-    albumTitle = '',
-    albumYear = '',
-    albumCondition = 0,
+    artistId,
+    albumTitle,
+    albumYear,
+    albumCondition,
     artists = [],
-    onClickSave = () => {},
-    onClickCancel = () => {},
+    onSave = () => {},
+    onCancel = () => {},
   } = props;
 
   const [albumTitleField, setAlbumTitleField] = useState(albumTitle);
@@ -51,7 +51,6 @@ function RecordForm(props) {
   };
 
   const handleAlbumYearFieldChange = (event) => {
-    // validate must be a number
     setAlbumYearField(event.target.value);
   };
 
@@ -95,13 +94,13 @@ function RecordForm(props) {
     }
 
     if (!validationSuccess.requiredAlbumTitle) {
-      setAlbumTitleError('Please add an Album Title');
+      setAlbumTitleError('Please add a title');
     } else if (albumTitleError) {
       setAlbumTitleError('');
     }
 
     if (!validationSuccess.requiredAlbumYear) {
-      setAlbumYearError('Please add an Album Year');
+      setAlbumYearError('Please add a year');
     } else if (!validationSuccess.formatAlbumYear) {
       setAlbumYearError('Please add a valid 4-digit year');
     } else if (albumYearError) {
@@ -109,7 +108,7 @@ function RecordForm(props) {
     }
 
     if (!validationSuccess.requiredArtistId) {
-      setArtistIdError('Please select an Artist Name');
+      setArtistIdError('Please select an artist');
     } else if (artistIdError) {
       setArtistIdError('');
     }
@@ -137,6 +136,7 @@ function RecordForm(props) {
     <div className="record-form">
       <div className="record-form-heading">{recordFormHeading}</div>
       <div className="record-form-field">
+        <div className="record-form-label">Album Title</div>
         <Input
           placeholder="Album Title"
           onChange={handleAlbumTitleFieldChange}
@@ -148,8 +148,9 @@ function RecordForm(props) {
         )}
       </div>
       <div className="record-form-field">
+        <div className="record-form-label">Year</div>
         <Input
-          placeholder="Year"
+          placeholder="Album Year"
           onChange={handleAlbumYearFieldChange}
           onBlur={() => setHasUserInteractedWithForm(true)}
           value={albumYearField}
@@ -159,15 +160,14 @@ function RecordForm(props) {
         )}
       </div>
       <div className="record-form-field">
+        <div className="record-form-label">Artist</div>
         <Select
           showSearch
           style={{ width: '100%' }}
           placeholder="Select an artist"
           optionFilterProp="children"
           onChange={handleArtistIdFieldChange}
-          onFocus={() => {}}
           onBlur={() => setHasUserInteractedWithForm(true)}
-          onSearch={() => {}}
           value={artistIdField}
           filterOption={(input, option) =>
             option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
@@ -186,7 +186,7 @@ function RecordForm(props) {
         )}
       </div>
       <div className="record-form-field">
-        <div>Condition</div>
+        <div className="record-form-label-condition">Condition</div>
         <Rate
           onChange={handleAlbumConditionFieldChange}
           onBlur={() => setHasUserInteractedWithForm(true)}
@@ -199,7 +199,7 @@ function RecordForm(props) {
       </div>
       <div className="record-form-actions-wrapper">
         <div className="record-form-action-item">
-          <Button key="recordFormCancel" onClick={onClickCancel}>
+          <Button key="recordFormCancel" onClick={onCancel}>
             Cancel
           </Button>
         </div>
@@ -208,7 +208,14 @@ function RecordForm(props) {
             key="recordFormSave"
             type="primary"
             disabled={isSaveDisabled}
-            onClick={() => onClickSave(artistIdField)}
+            onClick={() =>
+              onSave(
+                albumTitleField,
+                albumYearField,
+                albumConditionField,
+                artistIdField,
+              )
+            }
           >
             Save
           </Button>

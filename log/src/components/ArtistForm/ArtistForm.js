@@ -5,16 +5,12 @@ import './ArtistForm.css';
 
 const propsDefinition = {
   artistName: PropTypes.string,
-  onClickSave: PropTypes.func.isRequired,
-  onClickCancel: PropTypes.func.isRequired,
+  onSave: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
 };
 
 function ArtistForm(props) {
-  const {
-    artistName,
-    onClickSave = () => {},
-    onClickCancel = () => {},
-  } = props;
+  const { artistName, onSave = () => {}, onCancel = () => {} } = props;
 
   const defaultArtistNameField = artistName || '';
   const defaultSaveDisabled = artistName ? false : true;
@@ -31,7 +27,7 @@ function ArtistForm(props) {
   );
 
   const handleArtistNameFieldChange = (event) => {
-    setArtistNameField(event.target.value.trim());
+    setArtistNameField(event.target.value);
   };
 
   useEffect(() => {
@@ -53,6 +49,7 @@ function ArtistForm(props) {
     <div className="artist-form">
       <div className="artist-form-heading">{artistFormHeading}</div>
       <div className="artist-form-field">
+        <div className="artist-form-label">Artist</div>
         <Input
           placeholder="Artist Name"
           onChange={handleArtistNameFieldChange}
@@ -65,7 +62,7 @@ function ArtistForm(props) {
       </div>
       <div className="artist-form-actions-wrapper">
         <div className="artist-form-action-item">
-          <Button key="artistFormCancel" onClick={onClickCancel}>
+          <Button key="artistFormCancel" onClick={onCancel}>
             Cancel
           </Button>
         </div>
@@ -74,7 +71,7 @@ function ArtistForm(props) {
             key="artistFormSave"
             type="primary"
             disabled={isSaveDisabled}
-            onClick={() => onClickSave(artistNameField)}
+            onClick={() => onSave(artistNameField)}
           >
             Save
           </Button>

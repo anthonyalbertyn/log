@@ -3,40 +3,65 @@ import 'antd/dist/antd.css';
 import './App.css';
 import ArtistForm from './components/ArtistForm';
 import RecordForm from './components/RecordForm';
+import { generateId } from './utils';
 
 function App() {
   const [records, setRecords] = useState([]);
-  const [artists, setArtists] = useState([
-    {
-      artistId: 1,
-      artistName: 'Lynn Henderson',
-    },
-    {
-      artistId: 2,
-      artistName: 'Anthony Albertyn',
-    },
-    {
-      artistId: 3,
-      artistName: 'Bobby Brown',
-    },
-    {
-      artistId: 4,
-      artistName: 'Pinky Drinky',
-    },
-  ]);
+  const [artists, setArtists] = useState([]);
+
+  const addNewRecord = (albumTitle, albumYear, albumCondition, artistId) => {
+    if (!albumTitle || !albumYear || !albumCondition || !artistId) {
+      return;
+    }
+    const newRecord = {
+      albumId: generateId(),
+      albumTitle,
+      albumYear: parseInt(albumYear, 10),
+      albumCondition: parseInt(albumCondition, 10),
+      artistId,
+    };
+    setRecords([
+      ...records,
+      {
+        ...newRecord,
+      },
+    ]);
+  };
+
+  const addNewArtist = (artistName) => {
+    if (!artistName) {
+      return;
+    }
+    const newArtist = {
+      artistId: generateId(),
+      artistName,
+    };
+    setArtists([
+      ...artists,
+      {
+        ...newArtist,
+      },
+    ]);
+  };
+
+  const cancelRecordForm = () => {};
+  const cancelArtistForm = () => {};
+
+  console.log('RECORDS: ', records);
+  console.log('ARTISTS: ', artists);
+
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className="app">
+      <header className="app-header">
         <h1>Record Collection</h1>
       </header>
       <div className="main">
         <RecordForm
           artists={artists}
-          artistId={4}
-          albumTitle="Hello there"
-          albumYear={1986}
-          albumCondition={2}
+          onSave={addNewRecord}
+          onCancel={cancelRecordForm}
         />
+        <ArtistForm onSave={addNewArtist} onCancel={cancelArtistForm} />
       </div>
     </div>
   );
@@ -44,13 +69,10 @@ function App() {
 
 export default App;
 
-// <ArtistForm />
-
 /*
-
-  artistId: PropTypes.number,
-  albumTitle: PropTypes.string,
-  albumYear: PropTypes.number,
-  albumCondition: PropTypes.number,
-
+  artists={artists}
+  artistId={4}
+  albumTitle="Hello there"
+  albumYear={1986}
+  albumCondition={2}
 */

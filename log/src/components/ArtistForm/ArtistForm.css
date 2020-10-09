@@ -1,11 +1,13 @@
 .artist-form {
   border: 1px solid #d9d9d9;
   padding: 1.5rem;
+  background-color: #fff;
 }
 
 .artist-form-actions-wrapper {
   display: flex;
   margin-bottom: 0.5rem;
+  padding-top: 0.75rem;
 }
 
 .artist-form-action-item {
@@ -26,4 +28,8 @@
   color: red;
   font-size: 0.75rem;
   padding-top: 0.5rem;
+}
+
+.artist-form-label {
+  margin-bottom: 0.5rem;
 }
