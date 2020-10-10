@@ -16,28 +16,31 @@ function ArtistList(props) {
   const [displayList, setDisplayList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const maximumItemsPerPage = 5;
+  const maximumItemsPerPage = 3;
 
   useEffect(() => {
+    // Sanity check page numbers for when a user deletes
+    // the last remaining item on a page
+    const numberItems = artists.length;
+    if (numberItems === 0 && currentPage !== 1) {
+      setCurrentPage(1);
+      return;
+    } else if (numberItems > 0) {
+      const largestPageNumber = Math.ceil(numberItems / maximumItemsPerPage);
+      if (currentPage > largestPageNumber) {
+        setCurrentPage(largestPageNumber);
+        return;
+      }
+    }
+    // Filter list so we only have items that should be ion the current page
     if (currentPage === 1) {
       setDisplayList(artists.slice(0, maximumItemsPerPage));
     } else {
-      // endIndex could end up being larger than array length if less items
-      // on a page than maximumItemsPerPage, but array slice does not care
-      // as it will just use array.length if that happens
+      // array slice does not care if endIndex is larger than array length
       const startIndex =
         currentPage * maximumItemsPerPage - maximumItemsPerPage;
       const endIndex = currentPage * maximumItemsPerPage;
       setDisplayList(artists.slice(startIndex, endIndex));
-    }
-    // sanity check first and last page numbers for when
-    // a user deletes items
-    const numberItems = artists.length;
-    const largestPageNumber = Math.ceil(numberItems / maximumItemsPerPage);
-    if (numberItems <= maximumItemsPerPage && currentPage !== 1) {
-      setCurrentPage(1);
-    } else if (currentPage > largestPageNumber) {
-      setCurrentPage(largestPageNumber);
     }
   }, [currentPage, artists, maximumItemsPerPage]);
 
