@@ -175,7 +175,7 @@ function App() {
     );
     if (filteredRecords.length > 0) {
       const numberOfRecords = filteredRecords.length;
-      const entityName = numberOfRecords > 1 ? 'record' : 'records';
+      const entityName = numberOfRecords > 1 ? 'records' : 'record';
       openNotificationWithIcon(
         'warning',
         'Artist could not be deleted',

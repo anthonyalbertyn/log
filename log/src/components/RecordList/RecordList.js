@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Record from '../Record';
 import './RecordList.css';
+import { sortObjectListByStringKey } from '../../utils';
 
 const propsDefinition = {
   records: PropTypes.array,
@@ -19,7 +20,7 @@ function RecordList(props) {
   } = props;
 
   const getArtistName = (artistId) => {
-    let artistName = 'Not specified';
+    let artistName = 'Artist not specified';
     const matches = artists.filter((item) => item.artistId === artistId);
     if (matches.length > 0) {
       artistName = matches[0].artistName;
@@ -27,10 +28,16 @@ function RecordList(props) {
     return artistName;
   };
 
+  const list = sortObjectListByStringKey(
+    [...records],
+    'albumTitle',
+    'ascending',
+  );
+
   return (
     <div className="record-list">
-      {records.length > 0 &&
-        records.map((item) => {
+      {list.length > 0 &&
+        list.map((item) => {
           const artistName = getArtistName(item.artistId);
           return (
             <Record

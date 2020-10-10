@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Input, Rate, Select } from 'antd';
 import PropTypes from 'prop-types';
 import './RecordForm.css';
+import { sortObjectListByStringKey } from '../../utils';
 
 const { Option } = Select;
 
@@ -154,6 +155,12 @@ function RecordForm(props) {
     }
   }, [albumTitleField, albumYearField, artistIdField, albumConditionField]);
 
+  const artistsList = sortObjectListByStringKey(
+    [...artists],
+    'artistName',
+    'ascending',
+  );
+
   return (
     <div className="record-form">
       <div className="record-form-field">
@@ -194,9 +201,9 @@ function RecordForm(props) {
             option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
           }
         >
-          {artists.length > 0 && (
+          {artistsList.length > 0 && (
             <>
-              {artists.map((item) => (
+              {artistsList.map((item) => (
                 <Option key={item.artistId} value={item.artistId}>
                   {item.artistName}
                 </Option>
