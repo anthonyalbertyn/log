@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Button, Input, Modal, Tabs } from 'antd';
+import { Button, Input, Modal, notification, Tabs } from 'antd';
 import { SearchOutlined, SoundOutlined, UserOutlined } from '@ant-design/icons';
 import 'antd/dist/antd.css';
 import './App.css';
@@ -18,10 +18,35 @@ function App() {
   const [isEditRecordActive, setIsEditRecordActive] = useState(false);
   const [isAddArtistActive, setIsAddArtistActive] = useState(false);
   const [isEditArtistActive, setIsEditArtistActive] = useState(false);
+  const [activeTabKey, setActiveTabKey] = useState('recordsTab');
+
+  // available notification types are:
+  // success, info, warning, error
+  const openNotificationWithIcon = (
+    notificationType,
+    notificationTitle,
+    notificationMessage,
+  ) => {
+    notification[notificationType]({
+      message: notificationTitle,
+      description: notificationMessage,
+    });
+  };
+
+  const activeTabShouldBe = (tabKey) => {
+    if (activeTabKey !== tabKey) {
+      setActiveTabKey(tabKey);
+    }
+  };
 
   const addNewRecord = (albumTitle, albumYear, albumCondition, artistId) => {
+    activeTabShouldBe('recordsTab');
     if (!albumTitle || !albumYear || !albumCondition || !artistId) {
-      return;
+      openNotificationWithIcon(
+        'error',
+        'Record not added',
+        'Some data was missing',
+      );
     }
     const newRecord = {
       albumId: generateId(),
@@ -30,28 +55,26 @@ function App() {
       albumCondition: parseInt(albumCondition, 10),
       artistId,
     };
-    setRecords([
-      ...records,
-      {
-        ...newRecord,
-      },
-    ]);
+    setRecords([...records, newRecord]);
+    openNotificationWithIcon('success', 'Record added', albumTitle);
   };
 
   const addNewArtist = (artistName) => {
+    activeTabShouldBe('artistsTab');
     if (!artistName) {
+      openNotificationWithIcon(
+        'error',
+        'Artist not added',
+        'Some data was missing',
+      );
       return;
     }
     const newArtist = {
       artistId: generateId(),
       artistName,
     };
-    setArtists([
-      ...artists,
-      {
-        ...newArtist,
-      },
-    ]);
+    setArtists([...artists, newArtist]);
+    openNotificationWithIcon('success', 'Artist added', artistName);
   };
 
   const getRecord = (albumId) => {
@@ -72,16 +95,89 @@ function App() {
     return artist;
   };
 
-  const editRecord = (albumId) => {
-    setIsEditRecordActive(true);
-  };
-  const editArtist = (artistId) => {
-    setIsEditArtistActive(true);
+  const editRecord = (
+    albumId,
+    albumTitle,
+    albumYear,
+    albumCondition,
+    artistId,
+  ) => {
+    activeTabShouldBe('recordsTab');
+    if (!albumId || !albumTitle || !albumYear || !albumCondition || !artistId) {
+      openNotificationWithIcon(
+        'error',
+        'Record not updated',
+        'Some data was missing',
+      );
+      return;
+    }
+    const filteredRecords = records.filter((item) => item.albumId !== albumId);
+    const updatedRecord = {
+      albumId,
+      albumTitle,
+      albumYear: parseInt(albumYear, 10),
+      albumCondition: parseInt(albumCondition, 10),
+      artistId,
+    };
+    setRecords([...filteredRecords, updatedRecord]);
+    openNotificationWithIcon('success', 'Record updated', albumTitle);
   };
 
-  const deleteRecord = (albumId) => {};
+  const editArtist = (artistId, artistName) => {
+    activeTabShouldBe('artistsTab');
+    if (!artistId || !artistName) {
+      openNotificationWithIcon(
+        'error',
+        'Artist not updated',
+        'Some data was missing',
+      );
+      return;
+    }
+    const filteredArtists = artists.filter(
+      (item) => item.artistId !== artistId,
+    );
+    const updatedArtist = {
+      artistId,
+      artistName,
+    };
+    setArtists([...filteredArtists, updatedArtist]);
+    openNotificationWithIcon('success', 'Artist updated', artistName);
+  };
 
-  const deleteArtist = (artistId) => {};
+  const deleteRecord = (albumId) => {
+    if (!albumId) {
+      return;
+    }
+    const filteredRecords = records.filter((item) => item.albumId !== albumId);
+    setRecords(filteredRecords);
+  };
+
+  const deleteArtist = (artistId, artistName) => {
+    if (!artistId || !artistName) {
+      openNotificationWithIcon(
+        'error',
+        'Artist not deleted',
+        'Some data was missing',
+      );
+      return;
+    }
+    const filteredRecords = records.filter(
+      (item) => item.artistId === artistId,
+    );
+    if (filteredRecords.length > 0) {
+      openNotificationWithIcon(
+        'warning',
+        'Artist could not be deleted',
+        `${artistName} is used by ${filteredRecords.length} albums`,
+      );
+    } else {
+      const filteredArtists = artists.filter(
+        (item) => item.artistId !== artistId,
+      );
+      setArtists(filteredArtists);
+      openNotificationWithIcon('success', 'Artist deleted', artistName);
+    }
+  };
 
   const cancelAddRecord = () => {
     setIsAddRecordActive(false);
@@ -99,8 +195,30 @@ function App() {
     setIsEditArtistActive(false);
   };
 
+  const handleAddRecordClick = () => {
+    setIsAddRecordActive(true);
+  };
+
+  const handleAddArtistClick = () => {
+    setIsAddArtistActive(true);
+  };
+
+  const handleEditRecordClick = (albumId) => {
+    // get the data
+    setIsEditRecordActive(true);
+  };
+
+  const handleEditArtistClick = (artistId) => {
+    // get the data
+    setIsEditArtistActive(true);
+  };
+
   const handleSearchInputChange = (event) => {
     console.log(event.target.value);
+  };
+
+  const handleTabChange = (tabKey) => {
+    setActiveTabKey(tabKey);
   };
 
   return (
@@ -114,7 +232,7 @@ function App() {
               type="primary"
               size="large"
               icon={<SoundOutlined />}
-              onClick={() => setIsAddRecordActive(true)}
+              onClick={handleAddRecordClick}
             >
               Add Record
             </Button>
@@ -125,7 +243,7 @@ function App() {
               type="secondary"
               size="large"
               icon={<UserOutlined />}
-              onClick={() => setIsAddArtistActive(true)}
+              onClick={handleAddArtistClick}
             >
               Add Artist
             </Button>
@@ -142,19 +260,19 @@ function App() {
         </div>
       </header>
       <div className="main">
-        <Tabs type="card">
+        <Tabs type="card" activeKey={activeTabKey} onChange={handleTabChange}>
           <TabPane tab="Records" key="recordsTab">
             <RecordList
               records={records}
               artists={artists}
-              onEdit={editRecord}
+              onEdit={handleEditRecordClick}
               onDelete={deleteRecord}
             />
           </TabPane>
           <TabPane tab="Artists" key="artistsTab">
             <ArtistList
               artists={artists}
-              onEdit={editArtist}
+              onEdit={handleEditArtistClick}
               onDelete={deleteArtist}
             />
           </TabPane>

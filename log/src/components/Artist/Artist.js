@@ -30,7 +30,7 @@ function Artist(props) {
   };
   const confirmDeleteRequest = () => {
     setHasRequestedDelete(false);
-    onDelete(artistId);
+    onDelete(artistId, artistName);
   };
 
   useEffect(() => {
