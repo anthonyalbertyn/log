@@ -19,3 +19,13 @@
 .app-action-item {
   margin-right: 0.5rem;
 }
+
+.app-search-results-message {
+  font-size: 1.25rem;
+  padding: 0 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.ant-tabs-large > .ant-tabs-nav .ant-tabs-tab {
+  font-size: 1.5rem;
+}

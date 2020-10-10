@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Button, Input, Modal, notification, Tabs } from 'antd';
 import { SearchOutlined, SoundOutlined, UserOutlined } from '@ant-design/icons';
-import 'antd/dist/antd.css';
-import './App.css';
 import ArtistForm from './components/ArtistForm';
 import RecordForm from './components/RecordForm';
 import RecordList from './components/RecordList';
 import ArtistList from './components/ArtistList';
 import { generateId, sortObjectListByStringKey } from './utils';
+import 'antd/dist/antd.css';
+import './App.css';
 
 const { TabPane } = Tabs;
 
@@ -20,6 +20,52 @@ function App() {
   const [isEditArtistActive, setIsEditArtistActive] = useState(false);
   const [activeTabKey, setActiveTabKey] = useState('recordsTab');
   const [editData, setEditData] = useState();
+  const [searchTerm, setSearchTerm] = useState('');
+
+  let recordSearchResults = [];
+  let artistSearchResults = [];
+  let recordResultsMessage = '';
+  let artistResultsMessage = '';
+
+  if (!searchTerm) {
+    recordSearchResults = sortObjectListByStringKey(
+      [...records],
+      'albumTitle',
+      'ascending',
+    );
+    artistSearchResults = sortObjectListByStringKey(
+      [...artists],
+      'artistName',
+      'ascending',
+    );
+    if (recordSearchResults.length === 0) {
+      recordResultsMessage = 'No records content';
+    }
+    if (artistSearchResults.length === 0) {
+      artistResultsMessage = 'No artists content';
+    }
+  }
+
+  if (searchTerm) {
+    const unsortedRecordSearchResults = records.filter((item) =>
+      item.albumTitle.toLowerCase().includes(searchTerm.toLowerCase()),
+    );
+    recordSearchResults = sortObjectListByStringKey(
+      unsortedRecordSearchResults,
+      'albumTitle',
+      'ascending',
+    );
+    const unsortedArtistSearchResults = artists.filter((item) =>
+      item.artistName.toLowerCase().includes(searchTerm.toLowerCase()),
+    );
+    artistSearchResults = sortObjectListByStringKey(
+      unsortedArtistSearchResults,
+      'artistName',
+      'ascending',
+    );
+    recordResultsMessage = `Record search results: ${recordSearchResults.length}`;
+    artistResultsMessage = `Artist search results: ${artistSearchResults.length}`;
+  }
 
   // available notification types are:
   // success, info, warning, error
@@ -260,7 +306,7 @@ function App() {
   };
 
   const handleSearchInputChange = (event) => {
-    console.log(event.target.value);
+    setSearchTerm(event.target.value);
   };
 
   const handleTabChange = (tabKey) => {
@@ -300,32 +346,40 @@ function App() {
             placeholder="Search records and artists"
             size="large"
             onChange={handleSearchInputChange}
+            value={searchTerm}
             suffix={<SearchOutlined />}
             style={{ width: '100%', maxWidth: 500 }}
           />
         </div>
       </header>
       <div className="main">
-        <Tabs type="card" activeKey={activeTabKey} onChange={handleTabChange}>
+        <Tabs
+          type="card"
+          activeKey={activeTabKey}
+          size="large"
+          onChange={handleTabChange}
+        >
           <TabPane tab="Records" key="recordsTab">
+            {recordResultsMessage && (
+              <div className="app-search-results-message">
+                {recordResultsMessage}
+              </div>
+            )}
             <RecordList
-              records={sortObjectListByStringKey(
-                [...records],
-                'albumTitle',
-                'ascending',
-              )}
+              records={recordSearchResults}
               artists={artists}
               onEdit={handleEditRecordClick}
               onDelete={deleteRecord}
             />
           </TabPane>
           <TabPane tab="Artists" key="artistsTab">
+            {artistResultsMessage && (
+              <div className="app-search-results-message">
+                {artistResultsMessage}
+              </div>
+            )}
             <ArtistList
-              artists={sortObjectListByStringKey(
-                [...artists],
-                'artistName',
-                'ascending',
-              )}
+              artists={artistSearchResults}
               onEdit={handleEditArtistClick}
               onDelete={deleteArtist}
             />
