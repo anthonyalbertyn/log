@@ -36,7 +36,7 @@ function Record(props) {
   };
   const confirmDeleteRequest = () => {
     setHasRequestedDelete(false);
-    onDelete(albumId);
+    onDelete(albumId, albumTitle);
   };
 
   useEffect(() => {

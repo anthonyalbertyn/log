@@ -6,6 +6,7 @@ import './RecordForm.css';
 const { Option } = Select;
 
 const propsDefinition = {
+  albumId: PropTypes.string,
   artistId: PropTypes.string,
   albumTitle: PropTypes.string,
   albumYear: PropTypes.number,
@@ -17,6 +18,7 @@ const propsDefinition = {
 
 function RecordForm(props) {
   const {
+    albumId = '',
     artistId,
     albumTitle,
     albumYear,
@@ -63,7 +65,24 @@ function RecordForm(props) {
   };
 
   const handleSave = () => {
-    onSave(albumTitleField, albumYearField, albumConditionField, artistIdField);
+    if (albumId) {
+      // Edit existing record
+      onSave(
+        albumTitleField,
+        albumYearField,
+        albumConditionField,
+        artistIdField,
+        albumId,
+      );
+    } else {
+      // Adding new record
+      onSave(
+        albumTitleField,
+        albumYearField,
+        albumConditionField,
+        artistIdField,
+      );
+    }
     onCancel();
   };
 

@@ -19,6 +19,7 @@ function App() {
   const [isAddArtistActive, setIsAddArtistActive] = useState(false);
   const [isEditArtistActive, setIsEditArtistActive] = useState(false);
   const [activeTabKey, setActiveTabKey] = useState('recordsTab');
+  const [editData, setEditData] = useState();
 
   // available notification types are:
   // success, info, warning, error
@@ -96,14 +97,15 @@ function App() {
   };
 
   const editRecord = (
-    albumId,
     albumTitle,
     albumYear,
     albumCondition,
     artistId,
+    albumId,
   ) => {
     activeTabShouldBe('recordsTab');
-    if (!albumId || !albumTitle || !albumYear || !albumCondition || !artistId) {
+    setEditData('');
+    if (!albumTitle || !albumYear || !albumCondition || !artistId || !albumId) {
       openNotificationWithIcon(
         'error',
         'Record not updated',
@@ -123,9 +125,10 @@ function App() {
     openNotificationWithIcon('success', 'Record updated', albumTitle);
   };
 
-  const editArtist = (artistId, artistName) => {
+  const editArtist = (artistName, artistId) => {
     activeTabShouldBe('artistsTab');
-    if (!artistId || !artistName) {
+    setEditData('');
+    if (!artistName || !artistId) {
       openNotificationWithIcon(
         'error',
         'Artist not updated',
@@ -144,12 +147,18 @@ function App() {
     openNotificationWithIcon('success', 'Artist updated', artistName);
   };
 
-  const deleteRecord = (albumId) => {
-    if (!albumId) {
+  const deleteRecord = (albumId, albumTitle) => {
+    if (!albumId || !albumTitle) {
+      openNotificationWithIcon(
+        'error',
+        'Record not deleted',
+        'Some data was missing',
+      );
       return;
     }
     const filteredRecords = records.filter((item) => item.albumId !== albumId);
     setRecords(filteredRecords);
+    openNotificationWithIcon('success', 'Record deleted', albumTitle);
   };
 
   const deleteArtist = (artistId, artistName) => {
@@ -165,10 +174,12 @@ function App() {
       (item) => item.artistId === artistId,
     );
     if (filteredRecords.length > 0) {
+      const numberOfRecords = filteredRecords.length;
+      const entityName = numberOfRecords > 1 ? 'record' : 'records';
       openNotificationWithIcon(
         'warning',
         'Artist could not be deleted',
-        `${artistName} is used by ${filteredRecords.length} albums`,
+        `${artistName} is used by ${numberOfRecords} ${entityName}`,
       );
     } else {
       const filteredArtists = artists.filter(
@@ -184,6 +195,7 @@ function App() {
   };
 
   const cancelEditRecord = () => {
+    setEditData('');
     setIsEditRecordActive(false);
   };
 
@@ -192,6 +204,7 @@ function App() {
   };
 
   const cancelEditArtist = () => {
+    setEditData('');
     setIsEditArtistActive(false);
   };
 
@@ -204,13 +217,46 @@ function App() {
   };
 
   const handleEditRecordClick = (albumId) => {
-    // get the data
-    setIsEditRecordActive(true);
+    if (!albumId) {
+      openNotificationWithIcon(
+        'error',
+        "Can't edit record",
+        'Some data was missing',
+      );
+      return;
+    }
+    const recordData = getRecord(albumId);
+    if (recordData) {
+      setEditData(recordData);
+      setIsEditRecordActive(true);
+    } else {
+      openNotificationWithIcon(
+        'error',
+        "Can't edit record",
+        'Record not found',
+      );
+    }
   };
 
   const handleEditArtistClick = (artistId) => {
-    // get the data
-    setIsEditArtistActive(true);
+    if (!artistId) {
+      openNotificationWithIcon(
+        'error',
+        "Can't edit artist",
+        'Some data was missing',
+      );
+    }
+    const artistData = getArtist(artistId);
+    if (artistData) {
+      setEditData(artistData);
+      setIsEditArtistActive(true);
+    } else {
+      openNotificationWithIcon(
+        'error',
+        "Can't edit artist",
+        'Artist not found',
+      );
+    }
   };
 
   const handleSearchInputChange = (event) => {
@@ -291,7 +337,7 @@ function App() {
             />
           </Modal>
         )}
-        {isEditRecordActive && (
+        {isEditRecordActive && editData && (
           <Modal
             title="Edit Record"
             visible={isEditRecordActive}
@@ -299,6 +345,11 @@ function App() {
             footer={null}
           >
             <RecordForm
+              albumId={editData.albumId}
+              albumTitle={editData.albumTitle}
+              albumYear={editData.albumYear}
+              albumCondition={editData.albumCondition}
+              artistId={editData.artistId}
               artists={artists}
               onSave={editRecord}
               onCancel={cancelEditRecord}
@@ -315,14 +366,19 @@ function App() {
             <ArtistForm onSave={addNewArtist} onCancel={cancelAddArtist} />
           </Modal>
         )}
-        {isEditArtistActive && (
+        {isEditArtistActive && editData && (
           <Modal
             title="Edit Artist"
             visible={isEditArtistActive}
             onCancel={cancelEditArtist}
             footer={null}
           >
-            <ArtistForm onSave={editArtist} onCancel={cancelEditArtist} />
+            <ArtistForm
+              artistId={editData.artistId}
+              artistName={editData.artistName}
+              onSave={editArtist}
+              onCancel={cancelEditArtist}
+            />
           </Modal>
         )}
       </div>

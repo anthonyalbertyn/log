@@ -4,13 +4,19 @@ import PropTypes from 'prop-types';
 import './ArtistForm.css';
 
 const propsDefinition = {
+  artistId: PropTypes.string,
   artistName: PropTypes.string,
   onSave: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
 };
 
 function ArtistForm(props) {
-  const { artistName, onSave = () => {}, onCancel = () => {} } = props;
+  const {
+    artistId = '',
+    artistName,
+    onSave = () => {},
+    onCancel = () => {},
+  } = props;
 
   const defaultArtistNameField = artistName || '';
   const defaultSaveDisabled = artistName ? false : true;
@@ -31,7 +37,13 @@ function ArtistForm(props) {
   };
 
   const handleSave = () => {
-    onSave(artistNameField);
+    if (artistId) {
+      // Editing existing artist
+      onSave(artistNameField, artistId);
+    } else {
+      // Adding new artist
+      onSave(artistNameField);
+    }
     onCancel();
   };
 
