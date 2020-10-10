@@ -16,7 +16,7 @@ function ArtistList(props) {
   const [displayList, setDisplayList] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const maximumItemsPerPage = 3;
+  const maximumItemsPerPage = 10;
 
   useEffect(() => {
     // Sanity check page numbers for when a user deletes

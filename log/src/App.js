@@ -316,7 +316,7 @@ function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <h1>Record Collection</h1>
+        <h1 className="app-page-heading">Record Collection</h1>
         <div className="app-action-items-wrapper">
           <div className="app-action-item">
             <Button

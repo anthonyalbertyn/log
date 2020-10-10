@@ -1,8 +1,16 @@
 .app {
-  padding: 1rem;
+  box-sizing: border-box;
+  padding: 2rem 1rem 1rem 1rem;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .app-header {
+  margin-bottom: 2rem;
+}
+
+h1.app-page-heading {
   margin-bottom: 2rem;
 }
 
