@@ -309,7 +309,11 @@ function App() {
         <Tabs type="card" activeKey={activeTabKey} onChange={handleTabChange}>
           <TabPane tab="Records" key="recordsTab">
             <RecordList
-              records={records}
+              records={sortObjectListByStringKey(
+                [...records],
+                'albumTitle',
+                'ascending',
+              )}
               artists={artists}
               onEdit={handleEditRecordClick}
               onDelete={deleteRecord}
