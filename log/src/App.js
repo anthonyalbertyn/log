@@ -7,7 +7,7 @@ import ArtistForm from './components/ArtistForm';
 import RecordForm from './components/RecordForm';
 import RecordList from './components/RecordList';
 import ArtistList from './components/ArtistList';
-import { generateId } from './utils';
+import { generateId, sortObjectListByStringKey } from './utils';
 
 const { TabPane } = Tabs;
 
@@ -317,7 +317,11 @@ function App() {
           </TabPane>
           <TabPane tab="Artists" key="artistsTab">
             <ArtistList
-              artists={artists}
+              artists={sortObjectListByStringKey(
+                [...artists],
+                'artistName',
+                'ascending',
+              )}
               onEdit={handleEditArtistClick}
               onDelete={deleteArtist}
             />
