@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button, Input, Modal, notification, Tabs } from 'antd';
 import { SearchOutlined, SoundOutlined, UserOutlined } from '@ant-design/icons';
 import ArtistForm from './components/ArtistForm';
