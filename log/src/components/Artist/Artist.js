@@ -25,9 +25,11 @@ function Artist(props) {
   const requestDelete = () => {
     setHasRequestedDelete(true);
   };
+
   const cancelDeleteRequest = () => {
     setHasRequestedDelete(false);
   };
+
   const confirmDeleteRequest = () => {
     setHasRequestedDelete(false);
     onDelete(artistId, artistName);
