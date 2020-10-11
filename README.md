@@ -53,7 +53,7 @@ Completed by Anthony Albertyn on 11 October 2020
 - All records and artists are listed if the search field has no text
 - If the search field has text, the records and artists will be filtered
 - Record fltering happens on 'albumTitle' and artists filtering happens on 'artistName'
-- There records and artists data are listed under two tabs (one for records and one for artists)
+- The records and artists data are listed under two tabs (one for records and one for artists)
 - Records as well as artists cards display 10 results maximim per paginated item
 - There are buttons at the top of the page to add a record or add an artist
 - A user can also edit and delete artists and records
@@ -76,10 +76,10 @@ The main changes I made to the data format was to split the data into artists an
 and to assign uuid's as 'artistId' for artists and 'albumId' records. In the new data structure, the records
 reference only the artistId.
 
-I decided to make the frontend app decide how it wants to pagenate data, and not have this dictated by the endpoints
+I decided to make the frontend app control pagination, and not have this dictated by the endpoints
 as the frontend app displays data in ascending order or albumTitle for records and ascending order of artistName for artists and when search is applied the data will change. Greg's endpoints could not perform search queries, so the way he structured his unsorted Json files into paginated endpoints was not useful.
 
-I considered using Redux for state management, but because this is a very small app, I decided go with state on App to manage records and artists state. Using Redux though would have resulted in less clutter within App.js would have been useful if the scope of this task was to implement data persitance.
+I considered using Redux for state management, but because this is a very small app, I decided to go with state on App to manage records and artists state. Using Redux though would have resulted in less clutter within App.js would have been useful if the scope of this task was to implement data persitance.
 
 ### The old data structure looked like this:
 
@@ -99,6 +99,6 @@ I assumed it would be confusing for a user to edit an artist name within a recor
 
 - Break the React components down to even smaller reusable components
 - Make the code in App.js more DRY, for example: notifications code is repeated
-- Re-implemented state managemnt for records and artists using Redux with actions and disspatchers
+- Re-implemented state managemnt for records and artists using Redux with actions and dispatchers
 - Write unit tests with Jest and React Testing Library!
-- Add a button on the record/album form to add a new artist inline if it does not exist in the artist select list
+- Add a button on the record/album form to add a new artist inline if the artist does not exist in the artist select list
