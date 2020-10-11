@@ -21,13 +21,13 @@ Alternatively you can run this command: json-server --watch db.json
 
 ## End-points (GET)
 
-### http://localhost/artists
+### http://localhost:4000/artists
 
 Response in Json format
 
 `{[{ "artistId": "ca0787f5-f2b8-4e8f-a0d7-2915bd7e49dc", "artistName": "Artist Name Here" }]}`
 
-### http://localhost/records
+### http://localhost:4000/records
 
 Response in Json format
 
