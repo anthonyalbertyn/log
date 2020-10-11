@@ -1,0 +1,10 @@
+{
+  "name": "json-server",
+  "private": true,
+  "scripts": {
+    "start": "json-server --watch db.json"
+  },
+  "dependencies": {
+    "json-server": "0.16.2"
+  }
+}

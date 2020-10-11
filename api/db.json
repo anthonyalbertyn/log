@@ -1,0 +1,509 @@
+{
+  "artists": [
+    {
+      "artistId": "ca0787f5-f2b8-4e8f-a0d7-2915bd7e49dc",
+      "artistName": "Sex Pistols"
+    },
+    {
+      "artistId": "b183086c-37f8-44fe-ba7e-ae413d7b3dfc",
+      "artistName": "Derek and the Dominos"
+    },
+    {
+      "artistId": "4560ce83-7a11-4524-86f3-1c7ccb2f0ab3",
+      "artistName": "The Animals"
+    },
+    {
+      "artistId": "da9a0a48-670f-4bad-99e0-5815b2a10186",
+      "artistName": "Living Colour"
+    },
+    {
+      "artistId": "0b966593-f2c6-4b76-b43c-376a29196ad0",
+      "artistName": "The Jackson Five"
+    },
+    {
+      "artistId": "e1183fc6-f362-41ee-b957-e515d8fe0510",
+      "artistName": "The Who"
+    },
+    {
+      "artistId": "2f7d3757-083b-4020-84fe-1e533f77b718",
+      "artistName": "AC/DC"
+    },
+    {
+      "artistId": "a606e13b-5926-4213-ba55-e0a2e18bd8d8",
+      "artistName": "Frank Zappa and the Mothers of Invention"
+    },
+    {
+      "artistId": "9d92670d-4cbf-4f62-b8be-a3451be06558",
+      "artistName": "Aerosmith"
+    },
+    {
+      "artistId": "aca9cb7c-0109-4fc4-b766-11ded2d97dc1",
+      "artistName": "The Beatles"
+    },
+    {
+      "artistId": "0ce14175-4dbb-4d75-9954-08f9aaf10e1c",
+      "artistName": "The Band"
+    },
+    {
+      "artistId": "c68d9599-059a-430b-b39c-03932223db1a",
+      "artistName": "Earth Wind and Fire"
+    },
+    {
+      "artistId": "c9cf2ce2-6c3e-4b1e-946f-a24cb9a6b5d5",
+      "artistName": "James Brown and the JBs"
+    },
+    {
+      "artistId": "43d2d4d9-5d60-4560-815f-75243c2b5d05",
+      "artistName": "Lynyrd Skynyrd"
+    },
+    {
+      "artistId": "c3af2948-db60-4795-ad87-b84f33093537",
+      "artistName": "The Jimi Hendrix Experience"
+    },
+    {
+      "artistId": "d72c1bf6-e8ee-40c0-a34d-f58dec0834b1",
+      "artistName": "Genesis"
+    },
+    {
+      "artistId": "392af398-7eb0-4501-8b68-28522e422f47",
+      "artistName": "The Carpenters"
+    },
+    {
+      "artistId": "b3621443-ff3d-49cd-9747-86eb41efd0ba",
+      "artistName": "The Clash"
+    },
+    {
+      "artistId": "5aba8a98-3471-48c2-97b8-7760c5b5713e",
+      "artistName": "David Bowie and The Spiders From Mars"
+    },
+    {
+      "artistId": "4fb5c3c2-02ab-4b0e-b727-fbf621ebdb6f",
+      "artistName": "Kansas"
+    },
+    {
+      "artistId": "102ff4c3-8398-4896-9648-538b4aeb27ab",
+      "artistName": "The Scorpions"
+    },
+    {
+      "artistId": "47974cea-423f-42a4-9b3b-3d2aee96be6a",
+      "artistName": "ZZ Top"
+    },
+    {
+      "artistId": "49bb56c7-ccb3-46a5-8e2b-abaabf700987",
+      "artistName": "Duran Duran"
+    },
+    {
+      "artistId": "11ef8b5e-4cff-4895-90d0-b2de770d37e2",
+      "artistName": "Coldplay"
+    },
+    {
+      "artistId": "62a8d8ab-aa1b-4f1d-a671-ec5ab73cd015",
+      "artistName": "Van Halen"
+    },
+    {
+      "artistId": "35986a0e-2e64-419f-ad73-0eb52ae3a93d",
+      "artistName": "The Police"
+    },
+    {
+      "artistId": "09281f9f-16eb-4d31-95d3-2dde4ebdaa03",
+      "artistName": "The Roots"
+    },
+    {
+      "artistId": "654efcd0-7ea6-4dcd-b4ee-1b760c95f951",
+      "artistName": "Soundgarden"
+    },
+    {
+      "artistId": "8c7f45df-c4e9-4ca7-a29e-2c1600a39a3b",
+      "artistName": "R.E.M."
+    },
+    {
+      "artistId": "a1b94cd8-d8b0-4c44-8d41-d7d0f5e5cf18",
+      "artistName": "The Kinks"
+    },
+    {
+      "artistId": "6080aa53-2c7b-4d87-be22-9416da2446f0",
+      "artistName": "Traffic"
+    },
+    {
+      "artistId": "258f84e8-fdd7-4cac-b240-a9ae14d20908",
+      "artistName": "Thievery Corporation"
+    },
+    {
+      "artistId": "0765d608-3e3c-4cde-881a-7c9dedd9d354",
+      "artistName": "Stone Temple Pilots"
+    },
+    {
+      "artistId": "c15c0e79-8311-4763-be19-24080a251822",
+      "artistName": "Buffalo Springfield"
+    },
+    {
+      "artistId": "3e7c6589-f47a-4044-8989-6ded6e7f2d4a",
+      "artistName": "Metallica"
+    },
+    {
+      "artistId": "894ac484-115d-4256-9d8c-76d07f900f7b",
+      "artistName": "No Doubt"
+    },
+    {
+      "artistId": "2c1fa155-88b8-49c5-bf6e-1949ec56d448",
+      "artistName": "Bon Jovi"
+    },
+    {
+      "artistId": "0a62a00d-d9a2-4b9e-8edd-d73ccba07f29",
+      "artistName": "Janis Joplin and Big Brother and the Holding Company"
+    },
+    {
+      "artistId": "226a939b-7d38-493b-9458-efa5ac0b1e3f",
+      "artistName": "Creedence Clearwater Revival"
+    },
+    {
+      "artistId": "ab04e143-438e-43c2-980c-9457232c9842",
+      "artistName": "Blind Faith"
+    }
+  ],
+  "records": [
+    {
+      "albumId": "aadb9c4c-7833-4e2f-b240-9fc848171da5",
+      "albumTitle": "Cardigan Letterpress Scenester",
+      "albumYear": 1967,
+      "albumCondition": 1,
+      "artistId": "ca0787f5-f2b8-4e8f-a0d7-2915bd7e49dc"
+    },
+    {
+      "albumId": "debe72ad-d0f9-434b-bfe9-cd67a559629e",
+      "albumTitle": "Sriracha Vinegar Disrupt",
+      "albumYear": 1964,
+      "albumCondition": 1,
+      "artistId": "b183086c-37f8-44fe-ba7e-ae413d7b3dfc"
+    },
+    {
+      "albumId": "7cf370f8-c6ed-4f7f-bac5-fab159271e33",
+      "albumTitle": "Heirloom Twee Literally",
+      "albumYear": 1923,
+      "albumCondition": 4,
+      "artistId": "4560ce83-7a11-4524-86f3-1c7ccb2f0ab3"
+    },
+    {
+      "albumId": "450a28d8-1cc2-4edc-921b-4dcc01e9f24a",
+      "albumTitle": "Distillery Intelligentsia Plaid",
+      "albumYear": 1939,
+      "albumCondition": 2,
+      "artistId": "da9a0a48-670f-4bad-99e0-5815b2a10186"
+    },
+    {
+      "albumId": "f6602a77-fe05-4678-953d-e49c9e34306d",
+      "albumTitle": "Locavore Stumptown Flexitarian",
+      "albumYear": 1950,
+      "albumCondition": 2,
+      "artistId": "0b966593-f2c6-4b76-b43c-376a29196ad0"
+    },
+    {
+      "albumId": "370b6a9b-ed3f-4e9c-a333-3c150d91eb9c",
+      "albumTitle": "Banjo Pitchfork Flannel",
+      "albumYear": 1984,
+      "albumCondition": 5,
+      "artistId": "e1183fc6-f362-41ee-b957-e515d8fe0510"
+    },
+    {
+      "albumId": "aa324a41-a7dc-479b-8170-2043a363c41d",
+      "albumTitle": "90's Hashtag Chartreuse",
+      "albumYear": 1921,
+      "albumCondition": 5,
+      "artistId": "2f7d3757-083b-4020-84fe-1e533f77b718"
+    },
+    {
+      "albumId": "77f0cc5e-9063-4ba9-8ca1-7b83d481f276",
+      "albumTitle": "Authentic Knausgaard Godard",
+      "albumYear": 2014,
+      "albumCondition": 5,
+      "artistId": "a606e13b-5926-4213-ba55-e0a2e18bd8d8"
+    },
+    {
+      "albumId": "d560b9cf-cc11-4ae0-80d2-3495ebf9ec9d",
+      "albumTitle": "Helvetica Cliche Chicharrones",
+      "albumYear": 1936,
+      "albumCondition": 2,
+      "artistId": "9d92670d-4cbf-4f62-b8be-a3451be06558"
+    },
+    {
+      "albumId": "0e8fa9fd-27fb-4c83-bdc4-049754af6d4e",
+      "albumTitle": "Chicharrones Lomo Fixie",
+      "albumYear": 2007,
+      "albumCondition": 1,
+      "artistId": "aca9cb7c-0109-4fc4-b766-11ded2d97dc1"
+    },
+    {
+      "albumId": "a810716b-e503-49fc-92c6-b9909fc352d5",
+      "albumTitle": "Master Keffiyeh Keytar",
+      "albumYear": 2006,
+      "albumCondition": 4,
+      "artistId": "0ce14175-4dbb-4d75-9954-08f9aaf10e1c"
+    },
+    {
+      "albumId": "1998a410-ea2b-4207-9df1-2de94f902681",
+      "albumTitle": "Migas Brunch Tacos",
+      "albumYear": 1991,
+      "albumCondition": 3,
+      "artistId": "c68d9599-059a-430b-b39c-03932223db1a"
+    },
+    {
+      "albumId": "45d4ed2a-492b-4509-a5a7-ee9019b37c6f",
+      "albumTitle": "Try Hard 90's Pickled",
+      "albumYear": 1973,
+      "albumCondition": 5,
+      "artistId": "2f7d3757-083b-4020-84fe-1e533f77b718"
+    },
+    {
+      "albumId": "3803abe8-18ad-407e-bfdd-79a8e7ca80ff",
+      "albumTitle": "Austin Bespoke Tilde",
+      "albumYear": 1934,
+      "albumCondition": 5,
+      "artistId": "c9cf2ce2-6c3e-4b1e-946f-a24cb9a6b5d5"
+    },
+    {
+      "albumId": "c6838752-fd99-4f2f-912c-3384d791e16c",
+      "albumTitle": "Twee Waistcoat Tacos",
+      "albumYear": 1925,
+      "albumCondition": 1,
+      "artistId": "43d2d4d9-5d60-4560-815f-75243c2b5d05"
+    },
+    {
+      "albumId": "b69e8843-ccc9-4db3-9f3a-f3ca647fec6b",
+      "albumTitle": "Mixtape Pinterest Bespoke",
+      "albumYear": 2005,
+      "albumCondition": 1,
+      "artistId": "da9a0a48-670f-4bad-99e0-5815b2a10186"
+    },
+    {
+      "albumId": "b3c13cb1-cb83-47a8-8966-c222f840453f",
+      "albumTitle": "Brooklyn Chambray Crucifix",
+      "albumYear": 1946,
+      "albumCondition": 2,
+      "artistId": "c3af2948-db60-4795-ad87-b84f33093537"
+    },
+    {
+      "albumId": "0a410aeb-fd89-408c-bfc2-86f8944d8072",
+      "albumTitle": "Gastropub Bespoke Hammock",
+      "albumYear": 1950,
+      "albumCondition": 5,
+      "artistId": "4560ce83-7a11-4524-86f3-1c7ccb2f0ab3"
+    },
+    {
+      "albumId": "4b7fe2b8-3a11-44b8-b346-948f783935a6",
+      "albumTitle": "Retro Yolo Offal",
+      "albumYear": 1935,
+      "albumCondition": 5,
+      "artistId": "d72c1bf6-e8ee-40c0-a34d-f58dec0834b1"
+    },
+    {
+      "albumId": "de89c113-870e-4fb7-96db-bc5d1f34619b",
+      "albumTitle": "Yolo I Phone Master",
+      "albumYear": 2013,
+      "albumCondition": 5,
+      "artistId": "392af398-7eb0-4501-8b68-28522e422f47"
+    },
+    {
+      "albumId": "7abf62d1-1cb1-48a5-9214-b72fa1c77fa6",
+      "albumTitle": "Actually Tilde Master",
+      "albumYear": 1967,
+      "albumCondition": 4,
+      "artistId": "b3621443-ff3d-49cd-9747-86eb41efd0ba"
+    },
+    {
+      "albumId": "fb51bc74-95f2-4e32-98cb-fd5858b53f84",
+      "albumTitle": "Pour Over Diy Celiac",
+      "albumYear": 1928,
+      "albumCondition": 3,
+      "artistId": "5aba8a98-3471-48c2-97b8-7760c5b5713e"
+    },
+    {
+      "albumId": "97088e6f-ea56-42af-9720-dd336e3de1cc",
+      "albumTitle": "Vegan Cornhole Xoxo",
+      "albumYear": 1944,
+      "albumCondition": 4,
+      "artistId": "4fb5c3c2-02ab-4b0e-b727-fbf621ebdb6f"
+    },
+    {
+      "albumId": "c9f7b056-b10c-4c51-9110-98840d3af77e",
+      "albumTitle": "Crucifix Pbr\u0026B Gluten Free",
+      "albumYear": 1979,
+      "albumCondition": 3,
+      "artistId": "c9cf2ce2-6c3e-4b1e-946f-a24cb9a6b5d5"
+    },
+    {
+      "albumId": "9fffe24c-ae8b-492c-b6c6-82bc71b22f22",
+      "albumTitle": "Godard Fixie Skateboard",
+      "albumYear": 1921,
+      "albumCondition": 5,
+      "artistId": "102ff4c3-8398-4896-9648-538b4aeb27ab"
+    },
+    {
+      "albumId": "b306c59f-090b-4a6d-957f-9487238c7f58",
+      "albumTitle": "Knausgaard Tacos Mumblecore",
+      "albumYear": 1991,
+      "albumCondition": 3,
+      "artistId": "e1183fc6-f362-41ee-b957-e515d8fe0510"
+    },
+    {
+      "albumId": "9c1e409a-80a1-4f43-a97a-6c6833cf8c90",
+      "albumTitle": "Vinyl Tattooed Church Key",
+      "albumYear": 1937,
+      "albumCondition": 3,
+      "artistId": "ca0787f5-f2b8-4e8f-a0d7-2915bd7e49dc"
+    },
+    {
+      "albumId": "9de79e0f-08c0-4e4e-a7fd-c911a92649db",
+      "albumTitle": "Chia Echo Meggings",
+      "albumYear": 1985,
+      "albumCondition": 5,
+      "artistId": "47974cea-423f-42a4-9b3b-3d2aee96be6a"
+    },
+    {
+      "albumId": "1152735f-d927-455b-8aaf-d87cb0f4cb34",
+      "albumTitle": "Yolo Drinking Crucifix",
+      "albumYear": 1968,
+      "albumCondition": 3,
+      "artistId": "49bb56c7-ccb3-46a5-8e2b-abaabf700987"
+    },
+    {
+      "albumId": "3de55f37-bb28-471e-946a-173be16a2883",
+      "albumTitle": "Keytar Heirloom Mustache",
+      "albumYear": 1990,
+      "albumCondition": 5,
+      "artistId": "11ef8b5e-4cff-4895-90d0-b2de770d37e2"
+    },
+    {
+      "albumId": "a0d19e19-7a1d-4a29-912c-0e3e1a9f3ce1",
+      "albumTitle": "Vice Goth Cred",
+      "albumYear": 1963,
+      "albumCondition": 2,
+      "artistId": "62a8d8ab-aa1b-4f1d-a671-ec5ab73cd015"
+    },
+    {
+      "albumId": "db5efc21-fe36-42db-a48c-dc804e32c5cc",
+      "albumTitle": "Beard Letterpress 8 Bit",
+      "albumYear": 1992,
+      "albumCondition": 1,
+      "artistId": 24
+    },
+    {
+      "albumId": "0f86b18b-e1ce-4740-a72e-e4759eb868dc",
+      "albumTitle": "Sriracha Artisan Sustainable",
+      "albumYear": 1962,
+      "albumCondition": 5,
+      "artistId": 28
+    },
+    {
+      "albumId": "6b34a623-42fe-46e1-b77c-a99afa31e81d",
+      "albumTitle": "Mustache Taxidermy +1",
+      "albumYear": 1921,
+      "albumCondition": 5,
+      "artistId": "da9a0a48-670f-4bad-99e0-5815b2a10186"
+    },
+    {
+      "albumId": "bb6e3fcb-5eb1-434d-a55c-f5e68b6f21ab",
+      "albumTitle": "Meh Truffaut Drinking",
+      "albumYear": 1942,
+      "albumCondition": 4,
+      "artistId": "35986a0e-2e64-419f-ad73-0eb52ae3a93d"
+    },
+    {
+      "albumId": "4005cf98-f20f-4463-8e54-cdc20e938d1e",
+      "albumTitle": "Post Ironic Pabst Cred",
+      "albumYear": 1926,
+      "albumCondition": 2,
+      "artistId": "09281f9f-16eb-4d31-95d3-2dde4ebdaa03"
+    },
+    {
+      "albumId": "65f1109e-13ce-44af-a251-5efba29df2d7",
+      "albumTitle": "Meggings Migas Loko",
+      "albumYear": 1995,
+      "albumCondition": 2,
+      "artistId": "654efcd0-7ea6-4dcd-b4ee-1b760c95f951"
+    },
+    {
+      "albumId": "f81ec57a-c7cf-4f50-90c1-ea2630e85a18",
+      "albumTitle": "Everyday Mixtape Austin",
+      "albumYear": 1987,
+      "albumCondition": 3,
+      "artistId": "8c7f45df-c4e9-4ca7-a29e-2c1600a39a3b"
+    },
+    {
+      "albumId": "eb399456-7686-4cc1-8ef3-23a74cfdb8eb",
+      "albumTitle": "Vice Williamsburg Truffaut",
+      "albumYear": 1990,
+      "albumCondition": 2,
+      "artistId": "a1b94cd8-d8b0-4c44-8d41-d7d0f5e5cf18"
+    },
+    {
+      "albumId": "d5e23070-c8a1-43e7-a891-f70a0fd370d4",
+      "albumTitle": "Chambray Readymade Vhs",
+      "albumYear": 1923,
+      "albumCondition": 4,
+      "artistId": "6080aa53-2c7b-4d87-be22-9416da2446f0"
+    },
+    {
+      "albumId": "8705f633-21f1-48b2-a152-4d8e88b79f5a",
+      "albumTitle": "Tousled Hashtag Kitsch",
+      "albumYear": 1998,
+      "albumCondition": 4,
+      "artistId": "258f84e8-fdd7-4cac-b240-a9ae14d20908"
+    },
+    {
+      "albumId": "fee209ce-7a5e-4a81-bcdf-d5fde0e1e1d9",
+      "albumTitle": "Freegan Everyday Fixie",
+      "albumYear": 1994,
+      "albumCondition": 4,
+      "artistId": "0765d608-3e3c-4cde-881a-7c9dedd9d354"
+    },
+    {
+      "albumId": "8bf79604-18f6-4e0d-ae89-a30a82c004fd",
+      "albumTitle": "Kombucha Chillwave Goth",
+      "albumYear": 1961,
+      "albumCondition": 5,
+      "artistId": "c15c0e79-8311-4763-be19-24080a251822"
+    },
+    {
+      "albumId": "20d5081e-9628-405d-be07-570165f30464",
+      "albumTitle": "Lomo Williamsburg Tousled",
+      "albumYear": 1945,
+      "albumCondition": 4,
+      "artistId": "3e7c6589-f47a-4044-8989-6ded6e7f2d4a"
+    },
+    {
+      "albumId": "8cbef255-d3f6-4855-ada6-0e82ded6f138",
+      "albumTitle": "Church Key Microdosing Ennui",
+      "albumYear": 1964,
+      "albumCondition": 5,
+      "artistId": "894ac484-115d-4256-9d8c-76d07f900f7b"
+    },
+    {
+      "albumId": "3c1e0f6f-70ce-4b11-8426-d74628ab7e34",
+      "albumTitle": "Tilde Taxidermy Banjo",
+      "albumYear": 1928,
+      "albumCondition": 4,
+      "artistId": "2c1fa155-88b8-49c5-bf6e-1949ec56d448"
+    },
+    {
+      "albumId": "fed92fdb-3bae-4cd4-ae13-2f36352c5906",
+      "albumTitle": "Locavore Flannel Hoodie",
+      "albumYear": 1993,
+      "albumCondition": 4,
+      "artistId": "0a62a00d-d9a2-4b9e-8edd-d73ccba07f29"
+    },
+    {
+      "albumId": "91026397-af62-4c10-833b-94e8d67e1cc7",
+      "albumTitle": "Cliche Vhs Mlkshk",
+      "albumYear": 1997,
+      "albumCondition": 1,
+      "artistId": "226a939b-7d38-493b-9458-efa5ac0b1e3f"
+    },
+    {
+      "albumId": "db686368-b69d-4cbc-bd3e-e5a5f9601396",
+      "albumTitle": "Selvage Austin Loko",
+      "albumYear": 1948,
+      "albumCondition": 2,
+      "artistId": "ab04e143-438e-43c2-980c-9457232c9842"
+    }
+  ]
+}
