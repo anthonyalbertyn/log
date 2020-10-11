@@ -384,14 +384,14 @@
       "albumTitle": "Beard Letterpress 8 Bit",
       "albumYear": 1992,
       "albumCondition": 1,
-      "artistId": 24
+      "artistId": "102ff4c3-8398-4896-9648-538b4aeb27ab"
     },
     {
       "albumId": "0f86b18b-e1ce-4740-a72e-e4759eb868dc",
       "albumTitle": "Sriracha Artisan Sustainable",
       "albumYear": 1962,
       "albumCondition": 5,
-      "artistId": 28
+      "artistId": "49bb56c7-ccb3-46a5-8e2b-abaabf700987"
     },
     {
       "albumId": "6b34a623-42fe-46e1-b77c-a99afa31e81d",
