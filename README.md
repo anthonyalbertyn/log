@@ -79,6 +79,8 @@ reference only the artistId.
 I decided to make the frontend app decide how it wants to pagenate data, and not have this dictated by the endpoints
 as the frontend app displays data in ascending order or albumTitle for records and ascending order of artistName for artists and when search is applied the data will change. Greg's endpoints could not perform search queries, so the way he structured his unsorted Json files into paginated endpoints was not useful.
 
+I considered using Redux for state management, but because this is a very small app, I decided go with state on App to manage records and artists state. Using Redux though would have resulted in less clutter within App.js would have been useful if the scope of this task was to implement data persitance.
+
 ### The old data structure looked like this:
 
 `"results": [ { "album_title": "Cardigan Letterpress Scenester", "year": 1967, "condition": "poor", "artist": { "name": "Sex Pistols", "id": 0 } }, { "album_title": "Sriracha Vinegar Disrupt", "year": 1964, "condition": "poor", "artist": { "name": "Derek and the Dominos", "id": 1 } }, ],`
@@ -97,5 +99,6 @@ I assumed it would be confusing for a user to edit an artist name within a recor
 
 - Break the React components down to even smaller reusable components
 - Make the code in App.js more DRY, for example: notifications code is repeated
+- Re-implemented state managemnt for records and artists using Redux with actions and disspatchers
 - Write unit tests with Jest and React Testing Library!
 - Add a button on the record/album form to add a new artist inline if it does not exist in the artist select list
