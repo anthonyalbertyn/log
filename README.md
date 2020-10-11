@@ -57,6 +57,8 @@ Completed by Anthony Albertyn on 11 October 2020
 - Records as well as artists cards display 10 results maximim per paginated item
 - There are buttons at the top of the page to add a record or add an artist
 - A user can also edit and delete artists and records
+- A user can rate the condition of the record using 5 stars: 1. poor, 2. fair, 3. good, 4. very good and 5. mint
+- Hover over a star to see it's meaning
 - To access edit and delete buttons on records or artists, hover over the icon at the bottom of
   each record or artist card
 - See screenshots folder for a quick view of the user interface
