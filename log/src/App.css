@@ -35,6 +35,10 @@ h1.app-page-heading {
   margin-bottom: 1rem;
 }
 
+.app-loading {
+  margin: 3.5rem;
+}
+
 .ant-tabs-large > .ant-tabs-nav .ant-tabs-tab {
   font-size: 1.5rem;
 }

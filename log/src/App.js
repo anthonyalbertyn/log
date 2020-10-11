@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Button, Input, Modal, notification, Tabs } from 'antd';
+import { Button, Input, Modal, notification, Spin, Tabs } from 'antd';
 import { SearchOutlined, SoundOutlined, UserOutlined } from '@ant-design/icons';
 import ArtistForm from './components/ArtistForm';
 import RecordForm from './components/RecordForm';
@@ -21,6 +21,9 @@ function App() {
   const [activeTabKey, setActiveTabKey] = useState('recordsTab');
   const [editData, setEditData] = useState();
   const [searchTerm, setSearchTerm] = useState('');
+
+  const [isLoadingArtists, setIsLoadingArtists] = useState(true);
+  const [isLoadingRecords, setIsLoadingRecords] = useState(true);
 
   let recordSearchResults = [];
   let artistSearchResults = [];
@@ -312,6 +315,45 @@ function App() {
   const handleTabChange = (tabKey) => {
     setActiveTabKey(tabKey);
   };
+
+  useEffect(() => {
+    fetch('http://localhost:4000/artists')
+      .then((response) => response.json())
+      .then((data) => {
+        setArtists(data);
+        setIsLoadingArtists(false);
+      })
+      .catch((error) => {
+        setRecords([]);
+        console.error(error);
+      });
+
+    fetch('http://localhost:4000/records')
+      .then((response) => response.json())
+      .then((data) => {
+        setRecords(data);
+        setIsLoadingRecords(false);
+      })
+      .catch((error) => {
+        setArtists([]);
+        console.error(error);
+      });
+  }, []);
+
+  if (isLoadingArtists || isLoadingRecords) {
+    return (
+      <div className="app">
+        <header className="app-header">
+          <h1 className="app-page-heading">Record Collection</h1>
+        </header>
+        <div className="main">
+          <div className="app-loading">
+            <Spin size="large" />
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="app">
